@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <HomePage></HomePage>
   </div>
 </template>
 
 <script>
+import HomePage from "./components/HomePage";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {HomePage}
 }
 </script>
 
