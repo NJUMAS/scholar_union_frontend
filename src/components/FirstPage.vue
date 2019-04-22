@@ -2,16 +2,21 @@
   <div class="base">
     <!--首页图-->
     <img src="/static/images/FirstPage/firstPage.jpeg" width="100%" height="500px">
+    <router-view></router-view>
     <!--选项卡片-->
     <div style="width: 100%;height:150px;background-color: white">
-      <Card class="optionCard" :bordered="false">
-        <img src="/static/images/FirstPage/planet.png">
-        <div>
-          <p class="optionTitle">发布项目</p>
-          <p class="optionTranslation">publish project</p>
-          <p class="optionNote">为您的项目匹配最合适的成员</p>
-        </div>
-      </Card>
+
+      <router-link to="/first/publicProject">
+        <Card class="optionCard" :bordered="false">
+          <img src="/static/images/FirstPage/planet.png">
+          <div>
+            <p class="optionTitle">发布项目</p>
+            <p class="optionTranslation">publish project</p>
+            <p class="optionNote">为您的项目匹配最合适的成员</p>
+          </div>
+        </Card>
+      </router-link>
+
       <Card class="optionCard" :bordered="false">
           <img src="/static/images/FirstPage/telescope.png">
           <div>
@@ -109,6 +114,7 @@
     position: absolute;left: 120px;top: 20px;
   }
   .optionTitle {
+    color: black;
     font-size: 110%;
     font-weight: bold;
   }
@@ -116,7 +122,8 @@
     font-size: 70%;
     color: darkgray;
   }
-  .optionNote{
+  .optionNote {
+    color: black;
     font-size: 70%;
   }
 </style>

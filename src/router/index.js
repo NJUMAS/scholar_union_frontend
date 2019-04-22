@@ -5,6 +5,7 @@ import FirstPage from "../components/FirstPage";
 import MyProjectList from "../components/Project/MyProjectList";
 import MyPersonalPage from "../components/PersonalPage/MyPersonalPage";
 import MyStatistics from "../components/Statistics/MyStatistics";
+import NewProject from "../components/Project/NewProject";
 
 
 export default new Router({
@@ -18,7 +19,14 @@ export default new Router({
         {
           path: 'first',
           name: 'FirstPage',
-          component: FirstPage
+          component: FirstPage,
+          children: [
+            {
+              path:'publicProject',
+              name:'NewProject',
+              component:NewProject,
+            }
+          ]
         },
         {
           path:'myProjectList',

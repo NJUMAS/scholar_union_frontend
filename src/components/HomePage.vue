@@ -42,7 +42,7 @@
 
     <!--登录Modal-->
     <Modal v-model="loginModal" @on-ok="login('formInline')" title="登录" okText="登录"  cancelText="取消" width="30%">
-      <Form ref="formInline" :model="formInline" :rules="ruleInline" id="loginForm" inline style="text-align: center" >
+      <Form ref="formInline" v-model="formInline" :rules="ruleInline" id="loginForm" inline style="text-align: center" >
         <FormItem prop="phoneNum">
           <b>手机：</b>
           <Input type="text" prefix="ios-contact" placeholder="请输入手机号码" style="width: 250px"
@@ -62,7 +62,7 @@
 
     <!--注册Modal-->
     <Modal v-model="signUpModal"  @on-ok="signUp('registerInline')" title="注册" okText="注册"  cancelText="取消" width="30%">
-      <Form ref="registerInline" :model="registerInline" :rules="ruleInline" inline >
+      <Form ref="registerInline" v-model="registerInline" :rules="ruleInline" inline >
         <FormItem prop="phoneNum">
           <b>手机：</b>
           <Input type="text" prefix="ios-contact" placeholder="请输入手机号码" style="width: 250px"
