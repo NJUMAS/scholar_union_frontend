@@ -6,7 +6,7 @@
         <Tab-pane label="未处理">
           <div style="background-color: white;">
             <Row>
-              <i-col v-for="project in projectList" span="12">
+              <i-col v-for="(project,index) in projectList" :key="index" span="12">
 
                 <Card style="height: 220px; margin: 8%">
                   <Row>
@@ -37,7 +37,7 @@
         <Tab-pane label="进行中">
           <div style="background-color: white;">
             <Row>
-              <i-col v-for="project in projectList" span="12">
+              <i-col  v-for="(project,index) in projectList" :key="index" span="12">
 
                 <Card style="height: 220px; margin: 8%">
                   <Row>
@@ -65,7 +65,7 @@
         <Tab-pane label="已拒绝">
           <div style="background-color: white;">
             <Row>
-              <i-col v-for="project in projectList" span="12">
+              <i-col  v-for="(project,index) in projectList" :key="index" span="12">
 
                 <Card style="height: 200px; margin: 8%">
                   <Row>
