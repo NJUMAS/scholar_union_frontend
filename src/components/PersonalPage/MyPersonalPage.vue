@@ -3,13 +3,13 @@
     <i-col :lg="4" style="margin-bottom: 20px;">
       <Sider class="side-bar" :style="{height: 'calc(100vh - 35px)', background: '#fff', overflow: 'auto'}" ref="side" :collapsed-width="78">
         <Card class="card" shadow>
-          <img  src="/static/images/MyPersonalPage/kenty.png" >
+          <img  src="/static/images/MyPersonalPage/boy.png" >
           <br>
           <p >User</p>
         </Card>
         <Menu active-name="1-2" theme="light" width="auto" @on-select="onSelect">
           <MenuItem name="profile">个人信息</MenuItem>
-          <MenuItem name="fortune">财富</MenuItem>
+          <MenuItem name="points">积分</MenuItem>
           <MenuItem name="message">消息</MenuItem>
         </Menu>
       </Sider>
@@ -34,7 +34,7 @@
           value2:"",
           bar: {
             'profile': '个人信息',
-            'fortune':'财富',
+            'points':'积分',
             'message':'消息'
           }
         };

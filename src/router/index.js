@@ -6,7 +6,7 @@ import MyPersonalPage from "../components/PersonalPage/MyPersonalPage";
 import MyStatistics from "../components/Statistics/MyStatistics";
 import NewProject from "../components/Project/NewProject";
 import Profile from "../components/PersonalPage/Profile";
-import Fortune from "../components/PersonalPage/Fortune";
+import Points from "../components/PersonalPage/Points";
 import Message from "../components/PersonalPage/Message";
 import MemberRecommendation from "../components/Project/MemberRecommendation";
 
@@ -51,9 +51,9 @@ export default new Router({
               component: Profile
             },
             {
-              path: 'fortune',
-              name: 'Fortune',
-              component: Fortune
+              path: 'points',
+              name: 'Points',
+              component: Points
             },
             {
               path:'message',
