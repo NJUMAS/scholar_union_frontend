@@ -3,7 +3,6 @@ import HomePage from "../components/HomePage";
 import FirstPage from "../components/FirstPage";
 import MyProjectList from "../components/Project/MyProjectList";
 import MyPersonalPage from "../components/PersonalPage/MyPersonalPage";
-import MyStatistics from "../components/Statistics/MyStatistics";
 import NewProject from "../components/Project/NewProject";
 import Profile from "../components/PersonalPage/Profile";
 import Points from "../components/PersonalPage/Points";
@@ -62,11 +61,6 @@ export default new Router({
             }
             ]
         },
-        {
-          path:'myStatistics',
-          name:'MyStatistics',
-          component:MyStatistics
-        }
       ]
     },
   ]

@@ -8,9 +8,9 @@
           <p >User</p>
         </Card>
         <Menu active-name="1-2" theme="light" width="auto" @on-select="onSelect">
-          <MenuItem name="profile">个人信息</MenuItem>
-          <MenuItem name="points">积分</MenuItem>
-          <MenuItem name="message">消息</MenuItem>
+          <MenuItem name="profile" ><Icon type="ios-person" ></Icon> 个人信息</MenuItem>
+          <MenuItem name="points"><Icon type="ios-egg" ></Icon> 积分</MenuItem>
+          <MenuItem name="message"><Icon type="ios-chatboxes" ></Icon> 消息</MenuItem>
         </Menu>
       </Sider>
     </i-col>
@@ -30,8 +30,6 @@
         name: "MyPersonalPage",
       data () {
         return {
-          value1:"2222",
-          value2:"",
           bar: {
             'profile': '个人信息',
             'points':'积分',

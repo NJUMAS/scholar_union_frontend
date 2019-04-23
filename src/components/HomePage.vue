@@ -10,18 +10,11 @@
 
       <router-link to="/myPersonalPage">
         <MenuItem name="3" style="float: right">
-<!--          <Icon type="ios-contact" />-->
             <Icon type="ios-contact" ></Icon>
             个人主页
         </MenuItem>
       </router-link>
 
-<!--      <router-link to="/myStatistics">-->
-<!--        <MenuItem name="4" style="float: right">-->
-<!--          <Icon type="ios-trending-up" />-->
-<!--          数据统计-->
-<!--        </MenuItem>-->
-<!--      </router-link>-->
 
       <router-link to="/myProjectList">
         <MenuItem name="2" style="float: right">
