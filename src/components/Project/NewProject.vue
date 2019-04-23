@@ -1,26 +1,43 @@
 <template>
-  <Modal v-model="modal" @on-ok="" title="发布任务" okText="发布"  cancelText="取消" width="30%">
-    <Form>
-      <FormItem>项目名称：
+  <Modal v-model="modal" @on-ok="publicProject" title="发布任务" okText="发布"  cancelText="取消" width="30%" id="modal">
+    <Form ref="projectInfo" v-model="projectInfo" >
+      <FormItem prop="name">项目名称：
         <Input v-model="projectInfo.name" placeholder="项目名称" style="width: 250px" />
       </FormItem>
+      <FormItem prop="startTime">预期时间：
+        <DatePicker v-model="projectInfo.startTime" type="date" format="yyyy-MM-dd" placeholder="请选择时间" style="width: 150px"></DatePicker>
+        —
+        <DatePicker v-model="projectInfo.endTime" type="date" format="yyyy-MM-dd" placeholder="请选择时间" style="width: 150px"></DatePicker>
+      </FormItem>
+      <FormItem prop="description">项目介绍：
+        <Input v-model="projectInfo.description"  type="textarea" :rows="2"  />
+      </FormItem>
+      <FormItem prop="fields">项目领域及资源规划：
+        <ul>
+          <li v-if="field.fieldName!==''" v-for="field in projectInfo.fields" :key="field.fieldId" style="margin-left: 20px">
+            领域:{{field.fieldId}} {{field.fieldName}},  人数:{{field.num}},  预计提供报酬:{{field.payment}}
+          </li>
+        </ul>
+        <Button type="primary" size="small" ghost @click="toAddField()">添加领域</Button>
+      </FormItem>
     </Form>
-    
 
-    项目时间：
-    项目介绍：
-    项目领域及资源规划：
+    <Modal v-model="fieldModal" width="20%" @on-ok="addField">
+      <br/><br/>
+      领域：
+      <Select style="width:150px" v-model="field.fieldName">
+        <OptionGroup v-for="fieldGroup in researchFields" :label="fieldGroup.fieldGroupName" :key="fieldGroup.fieldGroupId">
+          <Option v-for="(field) in fieldGroup.subFields" :value="field.fieldId+' '+field.fieldName" :key="field.fieldId"> {{field.fieldName }}</Option>
+        </OptionGroup>
+      </Select>
+      <br/><br/>
+      人数：
+      <InputNumber :min="1"  v-model="field.num"></InputNumber>
+      <br/><br/>
+      预计提供报酬：
+      <InputNumber :min="1"  v-model="field.payment"></InputNumber>
+    </Modal>
 
-
-    领域：
-    <Select style="width:250px">
-      <OptionGroup v-for="fieldGroup in researchFields" :label="fieldGroup.fieldGroupName" :key="fieldGroup.fieldGroupId">
-        <Option v-for="field in fieldGroup.subFields" :value="field.fieldName" :key="field.fieldId">{{ field.fieldName }}</Option>
-      </OptionGroup>
-    </Select>
-
-    <!--项目时间-->
-    <!--项目名称，项目介绍（一段话？），多组【领域，领域人数，领域总报酬】-->
   </Modal>
 </template>
 
@@ -30,18 +47,21 @@
     data(){
       return{
         modal: true,
+        fieldModal:false,
+
+        field:{
+          fieldId:'',
+          fieldName:'',
+          num: '',
+          payment:''
+        },
+
         projectInfo: {
           name: '',
           startTime: '',
           endTime: '',
           description: '',
-          fields: [
-            {
-              fieldId:'',
-              num: '',
-              payment:''
-            }
-          ]
+          fields: []
         },
 
         researchFields:[
@@ -148,8 +168,38 @@
             ]
           }
         ]
+      }
+    },
+    methods:{
 
+      toAddField(){
+        this.fieldModal = true;
+        document.frames('modal').location.reload();
+      },
 
+      addField(){
+
+        this.projectInfo.fields.push(
+          {
+            fieldId:this.field.fieldName.split(' ')[0],
+            fieldName:this.field.fieldName.split(' ')[1],
+            num: this.field.num,
+            payment:this.field.payment
+        });
+        this.field.fieldId = '';
+        this.field.fieldName = '';
+        this.field.num = '';
+        this.field.payment = '';
+      },
+      publicProject(){ //项目发布
+        alert("项目发布" + "\n" +
+          this.projectInfo.name + "\n" +
+          this.projectInfo.startTime + "\n" +
+          this.projectInfo.endTime + "\n" +
+          this.projectInfo.description + "\n" +
+          "几个领域："+this.projectInfo.fields.length
+        );
+        this.$router.push("/");
       }
     }
   };
