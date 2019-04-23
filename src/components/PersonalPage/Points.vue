@@ -27,6 +27,7 @@
   }
   .points{
     line-height: 24px;
+    font-size: 16px;
     color: darkorange;
   }
 </style>

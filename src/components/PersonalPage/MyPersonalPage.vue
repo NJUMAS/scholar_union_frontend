@@ -1,20 +1,24 @@
 <template>
-  <Row :gutter="20" style="margin-top: 10px;">
-    <i-col :lg="4" style="margin-bottom: 20px;">
+  <Row :gutter="20" >
+
+    <i-col :span="4" >
       <Sider class="side-bar" :style="{height: 'calc(100vh - 35px)', background: '#fff', overflow: 'auto'}" ref="side" :collapsed-width="78">
-        <Card class="card" shadow>
+
+        <Card class="card" shadow dis-hover style="border-radius: 0">
           <img  src="/static/images/MyPersonalPage/boy.png" >
           <br>
-          <p >User</p>
+          <p >{{username}}</p>
         </Card>
-        <Menu active-name="1-2" theme="light" width="auto" @on-select="onSelect">
-          <MenuItem name="profile" ><Icon type="ios-person" ></Icon> 个人信息</MenuItem>
-          <MenuItem name="points"><Icon type="ios-egg" ></Icon> 积分</MenuItem>
-          <MenuItem name="message"><Icon type="ios-chatboxes" ></Icon> 消息</MenuItem>
+
+        <Menu active-name="1-2" theme="light" width="auto" @on-select="onSelect" style="border-radius: 0">
+          <MenuItem name="profile" style="line-height: 78px"><Icon type="ios-person" ></Icon> 个人信息</MenuItem>
+          <MenuItem name="points"><Icon type="ios-egg" style="line-height: 78px"></Icon> 积分</MenuItem>
+          <MenuItem name="message"><Icon type="ios-chatboxes" style="line-height: 78px"></Icon> 消息</MenuItem>
         </Menu>
       </Sider>
     </i-col>
-    <i-col :lg="20" style="margin-bottom: 20px;">
+
+    <i-col :span="20" style="margin-bottom: 20px;">
       <Header :style="{background: '#fff'}">
         <h2>{{activeTitle}}</h2>
       </Header>
@@ -30,6 +34,7 @@
         name: "MyPersonalPage",
       data () {
         return {
+          username:'侯韵晗',
           bar: {
             'profile': '个人信息',
             'points':'积分',
@@ -61,5 +66,7 @@
     font-weight: bold;
     text-align: center;
   }
-
+  .base{
+    background-color: #474C5F;
+  }
 </style>

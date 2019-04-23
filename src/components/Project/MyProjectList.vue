@@ -3,6 +3,7 @@
     <Row>
       <Col span="24">
       <Tabs class="myTab" type="card" style="margin: 20px;">
+
         <Tab-pane label="未处理">
           <div style="background-color: white;">
             <Row>
@@ -18,7 +19,7 @@
                       <p class="projectInfo">时间：{{project.startTime}}——{{project.endTime}}</p>
                       <p class="projectInfo">发起人：{{project.owner}}</p>
                       <p class="projectInfo">负责领域：{{project.fields}}</p>
-                      <p class="projectInfo">积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
+                      <p class="projectInfo">预计积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
                       <p class="projectInfo">项目人数：{{project.numbers}}</p>
                       <p style="float: right" class="projectInfo">72:00:00后自动拒绝</p>
                       <br>
@@ -34,6 +35,7 @@
             </Row>
           </div>
         </Tab-pane>
+
         <Tab-pane label="进行中">
           <div style="background-color: white;">
             <Row>
@@ -49,7 +51,7 @@
                       <p class="projectInfo">时间：{{project.startTime}}——{{project.endTime}}</p>
                       <p class="projectInfo">发起人：{{project.owner}}</p>
                       <p class="projectInfo">负责领域：{{project.fields}}</p>
-                      <p class="projectInfo">积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
+                      <p class="projectInfo">预计积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
                       <p class="projectInfo">项目人数：{{project.numbers}}</p>
                       <Progress :percent="25"></Progress>
                       <i-button style="float: right">退出项目</i-button>
@@ -61,8 +63,61 @@
             </Row>
           </div>
         </Tab-pane>
-        <Tab-pane disabled label="已结项" />
-        <Tab-pane label="已拒绝">
+
+        <Tab-pane label="已结项" >
+          <div style="background-color: white;">
+            <Row>
+              <i-col v-for="(project,index) in projectList" :key="index" span="12">
+
+                <Card style="height: 200px; margin: 8%">
+                  <Row>
+                    <i-col span="8">
+                      <img src="/static/images/FirstPage/firstPage.jpeg" style="width: 80%">
+                    </i-col>
+                    <i-col span="16">
+                      <p class="projectTitle">{{project.name}}</p>
+                      <p class="projectInfo">时间：{{project.startTime}}——{{project.endTime}}</p>
+                      <p class="projectInfo">发起人：{{project.owner}}</p>
+                      <p class="projectInfo">负责领域：{{project.fields}}</p>
+                      <p class="projectInfo">积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
+                      <p class="projectInfo">项目人数：{{project.numbers}}</p>
+                    </i-col>
+                  </Row>
+                </Card>
+
+              </i-col>
+            </Row>
+          </div>
+        </Tab-pane>
+
+        <Tab-pane label="已拒绝" >
+          <div style="background-color: white;">
+            <Row>
+              <i-col  v-for="(project,index) in projectList" :key="index" span="12">
+
+                <Card style="height: 200px; margin: 8%">
+                  <Row>
+                    <i-col span="8">
+                      <img src="/static/images/FirstPage/firstPage.jpeg" style="width: 80%">
+                    </i-col>
+                    <i-col span="16">
+                      <p class="projectTitle">{{project.name}}</p>
+                      <p class="projectInfo">时间：{{project.startTime}}——{{project.endTime}}</p>
+                      <p class="projectInfo">发起人：{{project.owner}}</p>
+                      <p class="projectInfo">负责领域：{{project.fields}}</p>
+                      <p class="projectInfo">预计积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
+                      <p class="projectInfo">项目人数：{{project.numbers}}</p>
+                      <i-button style="float: right">删除</i-button>
+                    </i-col>
+                  </Row>
+                </Card>
+
+              </i-col>
+            </Row>
+          </div>
+        </Tab-pane>
+
+        <Tab-pane label="我创建的项目">
           <div style="background-color: white;">
             <Row>
               <i-col  v-for="(project,index) in projectList" :key="index" span="12">
@@ -79,7 +134,6 @@
                       <p class="projectInfo">负责领域：{{project.fields}}</p>
                       <p class="projectInfo">积分报酬：<span class="paymentInfo">{{project.payment}}</span></p>
                       <p class="projectInfo">项目人数：{{project.numbers}}</p>
-                      <i-button style="float: right">删除</i-button>
                     </i-col>
                   </Row>
                 </Card>
@@ -88,7 +142,7 @@
             </Row>
           </div>
         </Tab-pane>
-        <Tab-pane disabled label="我创建的项目" />
+
       </Tabs>
       </Col>
     </Row>
