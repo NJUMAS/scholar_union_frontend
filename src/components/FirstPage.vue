@@ -25,6 +25,7 @@
             <p class="optionNote">海量项目信息</p>
           </div>
       </Card>
+
       <Card class="optionCard" :bordered="false">
         <img src="/static/images/FirstPage/satellite-station.png">
         <div>
@@ -54,7 +55,7 @@
         </Card>
       </Col>
       <Col span="14">
-        <Card style="height:300px;margin: 10px 10px 10px 10px">
+        <Card style="height:300px;margin: 10px 10px 10px 10px ">
           <!--新闻卡片标题-->
           <div slot="title">
             <p> <Icon type="ios-globe-outline" />&nbsp&nbsp热门新闻</p>

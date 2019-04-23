@@ -1,27 +1,27 @@
 <template>
   <div>
     <!--标题头-->
-    <img src="/static/images/icon.png" height="60px" class="headImg">
     <!--@on-select="select"-->
     <Menu mode="horizontal" active-name="1" class="menu">
-
+      <img src="/static/images/icon.png" height="60px" class="headImg">
       <Button v-if="loginNum===0" type="success" class="login" @click="toLogin">登录</Button>
       <Button v-if="loginNum===1" type="error" class="login"  @click="">注销</Button>
       <Divider type="vertical" style="float:right;top: 20px;height: 20px;"/>
 
-      <router-link to="/myStatistics">
-        <MenuItem name="4" style="float: right">
-          <Icon type="ios-construct" />
-          数据统计
+      <router-link to="/myPersonalPage">
+        <MenuItem name="3" style="float: right">
+<!--          <Icon type="ios-contact" />-->
+            <Icon type="ios-contact" ></Icon>
+            个人主页
         </MenuItem>
       </router-link>
 
-      <router-link to="/myPersonalPage">
-        <MenuItem name="3" style="float: right">
-          <Icon type="ios-construct" />
-          个人主页
-        </MenuItem>
-      </router-link>
+<!--      <router-link to="/myStatistics">-->
+<!--        <MenuItem name="4" style="float: right">-->
+<!--          <Icon type="ios-trending-up" />-->
+<!--          数据统计-->
+<!--        </MenuItem>-->
+<!--      </router-link>-->
 
       <router-link to="/myProjectList">
         <MenuItem name="2" style="float: right">
@@ -39,6 +39,7 @@
     </Menu>
     <router-view></router-view>
     <Footer class="layout-footer-center">2018-2019 &copy; Astronomical collaboration alliance</Footer>
+    <BackTop></BackTop>
 
     <!--登录Modal-->
     <Modal v-model="loginModal" @on-ok="login('formInline')" title="登录" okText="登录"  cancelText="取消" width="30%">
@@ -169,15 +170,16 @@
 <style scoped>
 
   .headImg {
-    position: relative;
-    margin: 15px 100px 0;
+    float: left;
+    margin-left: 100px;
     z-index: 999;
   }
 
   .menu {
-    position: relative;
-    margin-top: -30px;
-    margin-bottom: 2px;
+    /*position: relative;*/
+    /*margin-top: -30px;*/
+    /*margin-bottom: 2px;*/
+    height: 62px;
   }
 
 

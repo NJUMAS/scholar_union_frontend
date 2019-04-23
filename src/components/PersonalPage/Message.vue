@@ -1,12 +1,10 @@
 <template>
-    <card>
 
-    </card>
 </template>
 
 <script>
     export default {
-        name: "ProjectList"
+        name: "Message"
     }
 </script>
 
