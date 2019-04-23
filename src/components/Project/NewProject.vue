@@ -199,7 +199,7 @@
           this.projectInfo.description + "\n" +
           "几个领域："+this.projectInfo.fields.length
         );
-        this.$router.push("/");
+        this.$router.push("/recommendation");
       }
     }
   };

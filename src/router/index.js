@@ -8,6 +8,7 @@ import NewProject from "../components/Project/NewProject";
 import Profile from "../components/PersonalPage/Profile";
 import Fortune from "../components/PersonalPage/Fortune";
 import Message from "../components/PersonalPage/Message";
+import MemberRecommendation from "../components/Project/MemberRecommendation";
 
 export default new Router({
   routes: [
@@ -28,6 +29,11 @@ export default new Router({
               component:NewProject,
             }
           ]
+        },
+        {
+          path:'/recommendation',
+          name:'MemberRecommendation',
+          component: MemberRecommendation
         },
         {
           path:'myProjectList',
